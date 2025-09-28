@@ -30,10 +30,25 @@ def menu_transformaciones(puntos):
     print("\t------------------------------------------------------")
     print("\t1. Rotacion | 2. Reflexion | 3. Homotacia | 4. Salir |")
     print("\t------------------------------------------------------")
-    op = int(input("\tOpcion: "))
+    
+    while True:
+        try:
+            op = int(input("\tOpcion: "))
+            if op in [1, 2, 3, 4]:
+                break
+            else:
+                print("\t !! Ingresa un numero valido (1-4).")
+        except ValueError:
+            print("\t !!! Debes ingresar un número entero.")
     
     if op == 1:
-        angulo = float(input("\tIngrese angulo de rotación (grados): "))
+        while True:
+            try:
+                angulo = float(input("\tIngrese angulo de rotación (grados): "))
+                break
+            except ValueError:
+                print("\t !!! Ingresa un valor numerico.")
+        
         return rotacion(puntos, angulo)
     elif op == 2:
         eje = input("\tIngrese eje (x, y, d para diagonal y=x): ")
